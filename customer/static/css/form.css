@@ -1,0 +1,262 @@
+html {
+    height: 100%;
+    }
+    body {
+      margin:0;
+      padding:0;
+      font-family: sans-serif;
+      background: linear-gradient(#2e596e, #40c4d4);
+    }
+  
+    .login-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 350px;
+      padding: 3em;
+      transform: translate(-50%, -50%);
+      background: #141219;
+      box-sizing: border-box;
+      box-shadow: 0 15px 25px #213141;
+      border-radius: 10px;
+    }
+    
+    .login-box h2 {
+      margin: 0 0 30px;
+      padding: 0;
+      color: #40c4d4;
+      text-align: center;
+    }
+    
+    .login-box .user-box {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .login-box .user-box img {
+      align-self: center;
+    }
+    
+    .login-box .user-box input {
+      appearance: none;
+      outline: 0;
+      border: 0;
+      box-shadow: none;
+      /* Personalize */
+      flex: 1;
+      padding: 0 1em;
+      color: #40c4d4;
+      background-color: #213141;
+      background-image: none;
+      cursor: pointer;
+    }
+  
+    .login-box .user-box input::-ms-expand {
+      display: none;
+    }
+  
+    .login-box .user-box .input {
+      position: relative;
+      display: flex;
+      width: auto;
+      margin-bottom: 1em;
+      height: 3em;
+      border-radius: .5em;
+      overflow: hidden;
+    }
+  
+    .login-box .user-box .input::after {
+      content: '\25BC';
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 1em;
+      background-color: #2e596e;
+      transition: .25s all ease;
+      pointer-events: none;
+    }
+  
+    .login-box .user-box .input:hover::after {
+      color: #40c4d4;
+    }
+  
+    .login-box .user-box label {
+      font-size: 16px;
+      color: #40c4d4;
+      pointer-events: none;
+      margin-bottom: 1em;
+    }
+    
+    .login-box .user-box select {
+      /* Reset Select */
+      appearance: none;
+      outline: 0;
+      border: 0;
+      box-shadow: none;
+      /* Personalize */
+      flex: 1;
+      padding: 0 1em;
+      color: #40c4d4;
+      background-color: #213141;
+      background-image: none;
+      cursor: pointer;
+    }
+    /* Remove IE arrow */
+    .login-box .user-box select::-ms-expand {
+      display: none;
+    }
+    /* Custom Select wrapper */
+    .login-box .user-box .select {
+      position: relative;
+      display: flex;
+      width: auto;
+      margin-bottom: 1em;
+      height: 3em;
+      border-radius: .5em;
+      overflow: hidden;
+    }
+    /* Arrow */
+    .login-box .user-box .select::after {
+      content: '\25BC';
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 1em;
+      background-color: #2e596e;
+      transition: .25s all ease;
+      pointer-events: none;
+    }
+    /* Transition */
+    .login-box .user-box .select:hover::after {
+      color: #40c4d4;
+    }
+    
+    .login-box .user-box input:focus ~ label,
+    .login-box .user-box input:valid ~ label {
+      top: -5px;
+      left: 0;
+      color: #40c4d4;
+      font-size: 15px;
+    }
+  
+    .login-box form a {
+      position: absolute;
+      display: inline-block;
+      padding: 10px 20px;
+      color: #40c4d4;
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      margin-bottom: 1em;
+      margin-top: 1em;
+      letter-spacing: 4px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .login-box a:hover {
+      background: #398ba0;
+      color: #fff;
+      border-radius: 5px; 
+      box-shadow: 0 0 5px #398ba0,
+                  0 0 25px #398ba0,
+                  0 0 50px #398ba0,
+                  0 0 100px #398ba0;
+    }
+    
+    .login-box a span {
+      position: absolute;
+    }
+    
+    .login-box a span:nth-child(1) {
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: .1em;
+      background: linear-gradient(90deg, transparent, #40c4d4);
+      animation: btn-anim1 1s linear infinite;
+    }
+    
+    @keyframes btn-anim1 {
+      0% {
+        left: -100%;
+      }
+      50%,100% {
+        left: 100%;
+      }
+    }
+    
+    .login-box a span:nth-child(2) {
+      top: -100%;
+      right: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, #40c4d4);
+      animation: btn-anim2 1s linear infinite;
+      animation-delay: .25s
+    }
+    
+    @keyframes btn-anim2 {
+      0% {
+        top: -100%;
+      }
+      50%,100% {
+        top: 100%;
+      }
+    }
+    
+    .login-box a span:nth-child(3) {
+      bottom: 0;
+      right: -100%;
+      width: 100%;
+      height: .1em;
+      background: linear-gradient(270deg, transparent, #40c4d4);
+      animation: btn-anim3 1s linear infinite;
+      animation-delay: .5s
+    }
+    
+    @keyframes btn-anim3 {
+      0% {
+        right: -100%;
+      }
+      50%,100% {
+        right: 100%;
+      }
+    }
+    
+    .login-box a span:nth-child(4) {
+      bottom: -100%;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(360deg, transparent, #40c4d4);
+      animation: btn-anim4 1s linear infinite;
+      animation-delay: .75s
+    }
+    
+    @keyframes btn-anim4 {
+      0% {
+        bottom: -100%;
+      }
+      50%,100% {
+        bottom: 100%;
+      }
+    }
+    /*
+    Añadir responsive para dispositivos pequeños
+    @media screen and (max-width: 600px) {
+      .login-box .user-box label {
+        font-size: 14px;
+      }
+      .login.box .user-box .input,
+      .login-box .user-box .select{
+        font-size: 14px;
+      }
+      .login-box form a {
+        font-size: 14px;
+      }
+    }*/

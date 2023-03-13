@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ein Shot - Index</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/sprite.png' %}" type="image/x-icon">
+</head>
+<body>
+    <div class="login-box">
+        <form id="regForm" action="">
+          <div class="tab">
+            <div class="user-box">
+              <img src="{% static 'images/icon.png' %}" alt="Logo" height="200px" width="200px">
+            </div>
+            <div class="user-box">
+              <div class="select">
+                <select>
+                  <option value="" disabled selected>Choose your Gender</option>
+                  <option value="M">Male</option>
+                  <option value="F">Female</option>
+                  <option value="O">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="user-box">
+              <div class="input">
+                <input type="date" id="date" required="required">
+              </div>
+            </div>
+            <div class="user-box">
+              <a href="home">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Continue
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+</body>
+</html>
