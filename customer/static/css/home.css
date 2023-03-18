@@ -8,8 +8,7 @@
 body {
   display: grid;
   place-items: center;
-  min-height: 100vh;
-  background: #40c4d4;
+  min-height: 100vh;background: linear-gradient(#40c4d4, #2e596e);
 }
 
 ul {
