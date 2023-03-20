@@ -8,11 +8,7 @@ def home_es(request):
     return render(request, 'es/main.html')
 def menu_es(request):
     return render(request, 'es/menu.html')
-def sessions_es(request):
-    return render(request, 'es/session.html')
 def home_en(request):
     return render(request, 'en/main.html')
 def menu_en(request):
     return render(request, 'en/menu.html')
-def sessions_en(request):
-    return render(request, 'en/session.html')
