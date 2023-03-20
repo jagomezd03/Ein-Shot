@@ -37,7 +37,7 @@ span {
 }
 
 a {
-	color: #333;
+	color: #141219;
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
@@ -45,8 +45,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border: 1px solid #398ba0;
+	background-color: #2e596e;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -91,8 +91,8 @@ input {
 .container {
 	background-color: #fff;
 	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
+  	box-shadow: 0 14px 28px #141219, 
+			0 10px 10px #141219;
 	position: relative;
 	overflow: hidden;
 	width: 768px;
@@ -159,9 +159,9 @@ input {
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: #2e596e;
+	background: -webkit-linear-gradient(to right, #213141, #2e596e);
+	background: linear-gradient(to right, #213141, #2e596e);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -223,29 +223,4 @@ input {
 	margin: 0 5px;
 	height: 40px;
 	width: 40px;
-}
-
-footer {
-    background-color: #222;
-    color: #fff;
-    font-size: 14px;
-    bottom: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 999;
-}
-
-footer p {
-    margin: 10px 0;
-}
-
-footer i {
-    color: red;
-}
-
-footer a {
-    color: #3c97bf;
-    text-decoration: none;
 }

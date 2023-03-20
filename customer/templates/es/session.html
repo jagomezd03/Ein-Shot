@@ -4,58 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ein Shot - Login</title>
-    {% load static %}
+    {% load static %} <!--Cargando la variable static desde configuraicones la cual contiene el direccionamiento la carpeta static-->
+    <!--CSS Personalizado-->
+    <link rel="stylesheet" href="{% static 'css/sessions.css' %}">
+    <!--Toastify JS, usado para alerts-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!--Bootstrap-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'css/session.css' %}">
+    <!--Favicon-->
     <link rel="shortcut icon" href="{% static 'images/sprite.png' %}" type="image/x-icon">
+    <!--Scripts de conexion con Firebase-->
+    <script src="{% static 'js/main.js' %}" type="module"></script>
 </head>
 <body>
     <div class="container" id="container">
+        <!--Formulario de registro-->
         <div class="form-container sign-up-container">
-            <form action="#">
-                <h1>Create Account</h1>
+            <form id="signup-form">
+                <h1>Crea tu cuenta</h1>
+                <!--Container de registro con redes sociales-->
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
+                <span>o usa tu correo electronico para registrarte</span>
+                <input type="email" id="signup-email" placeholder="Correo Electronico" required/>
+                <input type="password" id="signup-password" placeholder="Contraseña" required/>
+                <button>Registrarse</button>
             </form>
         </div>
+        <!--Formulario de login-->
         <div class="form-container sign-in-container">
-            <form action="#">
-                <h1>Sign in</h1>
+            <form id="login-form">
+                <h1>Inicia Sesion</h1>
+                <!--Container de login con redes sociales-->
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your account</span>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
+                <span>o usa tu cuenta existente</span>
+                <input type="email" id="login-email" placeholder="Correo Electronico" />
+                <input type="password" id="login-password" placeholder="Contraseña" />
+                <a></a>
+                <button>Iniciar Sesion</button>
             </form>
         </div>
+        <!--Container de la interfaz-->
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
+                    <h1>Bienvenido de vuelta!</h1>
+                    <p>Introduce tus datos personales y comienza a disfrutar con nosotros</p>
+                    <button class="ghost" id="signIn">Inicia sesion</button>
                 </div>
                 <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
+                    <h1>Hola!</h1>
+                    <p>Para mantenerte en contacto con nosotros, registrate con tus datos personales</p>
+                    <button class="ghost" id="signUp">Registrate</button>
                 </div>
             </div>
         </div>
     </div>
+    <!--Script de overlay-->
     <script src="{% static 'js/session.js' %}"></script>
+    <!--Toastify JS-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 </html>
