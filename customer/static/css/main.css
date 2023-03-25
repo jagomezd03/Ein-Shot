@@ -140,114 +140,107 @@ html {
       color: #40c4d4;
       font-size: 15px;
     }
-  
-    .login-box form a {
-      position: absolute;
-      display: inline-block;
-      padding: 10px 20px;
-      color: #40c4d4;
-      font-size: 16px;
+
+    .login-box form button {
+      position: relative;
+      background: #444;
+      color: #fff;
       text-decoration: none;
       text-transform: uppercase;
-      overflow: hidden;
-      transition: .5s;
-      margin-bottom: 1em;
-      margin-top: 1em;
-      letter-spacing: 4px;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      border: none;
+      letter-spacing: 0.1rem;
+      font-size: 1rem;
+      padding: 1rem 3rem;
+      transition: 0.2s;
     }
     
-    .login-box a:hover {
-      background: #398ba0;
-      color: #fff;
-      border-radius: 5px; 
-      box-shadow: 0 0 5px #398ba0,
-                  0 0 25px #398ba0,
-                  0 0 50px #398ba0,
-                  0 0 100px #398ba0;
+    .login-box button:hover {
+      letter-spacing: 0.2rem;
+      padding: 1.1rem 3.1rem;
+      background: var(--clr);
+      color: var(--clr);
+      /* box-shadow: 0 0 35px var(--clr); */
+      animation: box 3s infinite;
     }
     
-    .login-box a span {
+    .login-box button::before {
+      content: "";
       position: absolute;
+      inset: 2px;
+      background: #272822;
     }
     
-    .login-box a span:nth-child(1) {
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: .1em;
-      background: linear-gradient(90deg, transparent, #40c4d4);
-      animation: btn-anim1 1s linear infinite;
+    .login-box button span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .login-box button i {
+      position: absolute;
+      inset: 0;
+      display: block;
     }
     
-    @keyframes btn-anim1 {
+    .login-box button i::before {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 2px;
+      left: 80%;
+      top: -2px;
+      border: 2px solid var(--clr);
+      background: #272822;
+      transition: 0.2s;
+    }
+    
+    .login-box button:hover i::before {
+      width: 15px;
+      left: 20%;
+      animation: move 3s infinite;
+    }
+    
+    .login-box button i::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 2px;
+      left: 20%;
+      bottom: -2px;
+      border: 2px solid var(--clr);
+      background: #272822;
+      transition: 0.2s;
+    }
+    
+    .login-box button:hover i::after {
+      width: 15px;
+      left: 80%;
+      animation: move 3s infinite;
+    }
+    
+    @keyframes move {
       0% {
-        left: -100%;
+        transform: translateX(0);
       }
-      50%,100% {
-        left: 100%;
+      50% {
+        transform: translateX(5px);
+      }
+      100% {
+        transform: translateX(0);
       }
     }
     
-    .login-box a span:nth-child(2) {
-      top: -100%;
-      right: 0;
-      width: 2px;
-      height: 100%;
-      background: linear-gradient(180deg, transparent, #40c4d4);
-      animation: btn-anim2 1s linear infinite;
-      animation-delay: .25s
-    }
-    
-    @keyframes btn-anim2 {
+    @keyframes box {
       0% {
-        top: -100%;
+        box-shadow: #27272c;
       }
-      50%,100% {
-        top: 100%;
+      50% {
+        box-shadow: 0 0 25px var(--clr);
       }
-    }
-    
-    .login-box a span:nth-child(3) {
-      bottom: 0;
-      right: -100%;
-      width: 100%;
-      height: .1em;
-      background: linear-gradient(270deg, transparent, #40c4d4);
-      animation: btn-anim3 1s linear infinite;
-      animation-delay: .5s
-    }
-    
-    @keyframes btn-anim3 {
-      0% {
-        right: -100%;
-      }
-      50%,100% {
-        right: 100%;
+      100% {
+        box-shadow: #27272c;
       }
     }
     
-    .login-box a span:nth-child(4) {
-      bottom: -100%;
-      left: 0;
-      width: 2px;
-      height: 100%;
-      background: linear-gradient(360deg, transparent, #40c4d4);
-      animation: btn-anim4 1s linear infinite;
-      animation-delay: .75s
-    }
-    
-    @keyframes btn-anim4 {
-      0% {
-        bottom: -100%;
-      }
-      50%,100% {
-        bottom: 100%;
-      }
-    }
-    /*
-    Añadir responsive para dispositivos pequeños
     @media screen and (max-width: 600px) {
       .login-box .user-box label {
         font-size: 14px;
@@ -259,4 +252,4 @@ html {
       .login-box form a {
         font-size: 14px;
       }
-    }*/
+    }
