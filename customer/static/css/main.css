@@ -143,7 +143,7 @@ html {
 
     .login-box form button {
       position: relative;
-      background: #444;
+      background: #141219;
       color: #fff;
       text-decoration: none;
       text-transform: uppercase;
@@ -167,7 +167,7 @@ html {
       content: "";
       position: absolute;
       inset: 2px;
-      background: #272822;
+      background: #141219;
     }
     
     .login-box button span {
@@ -189,7 +189,7 @@ html {
       left: 80%;
       top: -2px;
       border: 2px solid var(--clr);
-      background: #272822;
+      background: #141219;
       transition: 0.2s;
     }
     
@@ -207,7 +207,7 @@ html {
       left: 20%;
       bottom: -2px;
       border: 2px solid var(--clr);
-      background: #272822;
+      background: #141219;
       transition: 0.2s;
     }
     
@@ -231,13 +231,13 @@ html {
     
     @keyframes box {
       0% {
-        box-shadow: #27272c;
+        box-shadow: #213141;
       }
       50% {
         box-shadow: 0 0 25px var(--clr);
       }
       100% {
-        box-shadow: #27272c;
+        box-shadow: #213141;
       }
     }
     
