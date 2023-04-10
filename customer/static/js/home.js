@@ -5,8 +5,8 @@ import { setupProducts } from "./productList.js"
 import './sessionsForm.js'
 import './logout.js'
 //Identificar los containers
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
+const signUpButton = document.getElementById('signupModal');
+const signInButton = document.getElementById('loginModal');
 const container = document.getElementById('container');
 
 //Overlay Panel Derecho
@@ -23,7 +23,7 @@ const loggedInLinks = document.querySelectorAll('.logged-in')
 const loggedOutLinks = document.querySelectorAll('.logged-out')
 const logout = document.querySelector('#logout')
 
-const loginCheck = user => {//Login Check
+const loginCheck = (user) => {//Login Check
   if (user) {
     loggedOutLinks.forEach(link => link.style.display = 'none')
     loggedInLinks.forEach(link => link.style.display = 'block')
