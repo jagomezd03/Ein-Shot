@@ -1,0 +1,19 @@
+{
+    "menu": "Menu",
+    "licores": "Licores",
+    "shots": "Shots",
+    "cuenta": "Cuenta",
+    "login": "Iniciar Sesion",
+    "register": "Registarme",
+    "signout": "Cerrar Sesion",
+    "buscar": "Buscar",
+    "email": "Escribe tu correo electronico",
+    "password": "Escribe tu contraseña",
+    "language": "Idioma",
+    "search": "Buscar",
+    "gender": "Elige tu genero",
+    "male": "Masculino",
+    "female": "Femenino",
+    "other": "Prefiero no decirlo",
+    "continue": "Continuar"
+}

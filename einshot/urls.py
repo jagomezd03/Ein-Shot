@@ -20,8 +20,5 @@ from customer import views as customerViews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',customerViews.index),
-    path('es/home',customerViews.home_es),
-    path('es/menu',customerViews.menu_es),
-    path('en/home',customerViews.home_en),
-    path('en/menu',customerViews.menu_en),
+    path('home',customerViews.home),
 ]

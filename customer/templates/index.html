@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ein Shot - Index</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <script src="{% static 'js/index.js' %}" type="module"></script>
+  <link rel="shortcut icon" href="{% static 'images/sprite.png' %}" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body id="page-top" onload="translate('es','lng-tag')">
+  <div class="login-box">
+    <form id="regForm">
+      <div class="tab">
+        <div class="user-box">
+          <img src="{% static 'images/icon.png' %}" alt="Logo" height="200px" width="200px">
+        </div>
+        <div class="user-box">
+          <div class="select">
+            <select id="gender" required>
+              <option value="" disabled selected lng-tag="gender"></option>
+              <option value="M" lng-tag="male"></option>
+              <option value="F" lng-tag="female"></option>
+              <option value="O" lng-tag="other"></option>
+            </select>
+          </div>
+        </div>
+        <div class="user-box">
+          <div class="input">
+            <input type="date" id="birthdate" required>
+          </div>
+        </div>
+        <div class="user-box">
+          <button style="--clr:#0FF0FC"><span lng-tag="continue"></span><i></i></button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="{% static 'js/translate.js' %}"></script>
+</body>
+
+</html>

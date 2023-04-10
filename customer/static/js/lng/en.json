@@ -1,0 +1,19 @@
+{
+    "menu": "Menu",
+    "licores": "Liquors",
+    "shots": "Shots",
+    "cuenta": "Order Summary",
+    "login": "Log In",
+    "register": "Sign Up",
+    "signout": "Sign Out",
+    "buscar": "Search",
+    "email": "Introduce your E-mail",
+    "password": "Type your password",
+    "language": "Language",
+    "search": "Search",
+    "gender": "Choose your gender",
+    "male": "Male",
+    "female": "Female",
+    "other": "Prefer not to say",
+    "continue": "Continue"
+}

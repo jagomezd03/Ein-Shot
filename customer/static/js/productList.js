@@ -1,8 +1,8 @@
 const productList = document.querySelector('.products')
 
 export const setupProducts = (data) => {
-    if (data.length){
-        let html =""
+    if (data.length) {
+        let html = ""
         data.forEach(doc => {
             const product = doc.data()
             const li = `
@@ -11,7 +11,7 @@ export const setupProducts = (data) => {
                 <p>${product.precio}</p>
             </li>
             `
-            html+=li
+            html += li
         })
         productList.innerHTML = html
     } else {
