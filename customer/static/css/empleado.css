@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --dark: #001233;
+    --white: #fff;
+    --yellow: #ffb703;
+}
+
+body {
+    font-family: 'Comfortaa', cursive;
+}
+
+/* Main */
+.main-content {
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.crud-container {
+    width: auto;
+    height: auto;  /*Problema cuando hay muchos registros se puede perder el header, a partir de +9 registros cambiar a 95%*/
+    margin-top: 2rem;
+    padding: 2rem 3rem;
+    overflow: auto;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.4);
+    border-radius: 0.5rem;
+}
+
+.crud-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem 1rem 2rem;
+    border-bottom: 1px solid;
+}
+
+.crud-container h1 {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.button span {
+    margin-right: 10px;
+}

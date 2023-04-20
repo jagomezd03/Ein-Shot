@@ -1,8 +1,9 @@
 import { db } from "./firebase.js";
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js"
-import { showMessage } from "./showMessage.js";
+import { showMessage } from "./showmessage.js";
 const datetime = new Date()
 const regForm = document.querySelector('#regForm')
+const concurrent = "Concurrente"
 
 //Function to solve a problem related with the timezone on the input
 function correction(date) {
@@ -26,17 +27,16 @@ regForm.addEventListener('submit', async e => {
     const gender = regForm['gender'].value
     //Timestamp
     const c = verifyAge(d, datetime)
-    console.log(c)
     if (c) {
         const date = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear()
         const datetimestamp = day + ", " + datetime.getFullYear() + "/" + (datetime.getMonth() + 1) + "/" + datetime.getDate() + " " + datetime.getHours() + ':' + datetime.getMinutes() + ':' + datetime.getSeconds();
         try {
             const docRef = await addDoc(collection(db, "users"), {
-                birthdate: date,
-                gender: gender,
-                datetime: datetimestamp
+                fecha_nacimiento: date,
+                genero: gender,
+                datetime: datetimestamp,
+                tipo: concurrent
             });
-            console.log("Document written with ID: ", docRef.id);
             setTimeout(() => {
                 window.location.href = "/es/menu";
             }, 500);

@@ -13,12 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+#Import for using the DB from sqlite from django.contrib import admin
+from django.urls import path,include
 from customer import views as customerViews
+from administration import views as adminViews
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',customerViews.index),
-    path('home',customerViews.home),
+    # Admin path to the DB from sqlite path('admin/', admin.site.urls),
+    path('', customerViews.index),
+    path('home', customerViews.home),
+    path('admin/',adminViews.home, name="index"),
+    path('admin/facturas', adminViews.facturas, name='empleado'),
+    path('admin/cliente/registrados', adminViews.registrados, name='clientes registrados'),
+    path('admin/cliente/concurrentes', adminViews.concurrentes, name='clientes concurrentes'),
+    path('admin/empleado', adminViews.empleado, name='empleado'),
+    path('admin/search', adminViews.consultas, name='consultas'),
+    path('admin/producto', adminViews.productos, name='productos'),
 ]

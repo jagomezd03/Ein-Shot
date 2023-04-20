@@ -3,7 +3,6 @@ import { getDocs, collection } from "https://www.gstatic.com/firebasejs/9.18.0/f
 import { auth, db } from "./firebase.js"
 import { setupProducts } from "./productList.js"
 import './sessionsForm.js'
-import './logout.js'
 //Identificar los containers
 const signUpButton = document.getElementById('signupModal');
 const signInButton = document.getElementById('loginModal');
