@@ -1,5 +1,5 @@
-import { onGetEmployees, saveEmployee, deleteEmployee, getEmployee, updateEmployee, validateTypedoc } from "./firebase.js"; //Employee Methods
-import { validateEmail, validateName, validateDoc, validateNum, validatePassword, validateSurname } from "./firebase.js"; //Form validation methods
+import { onGetEmployees, saveEmployee, deleteEmployee, getEmployee, updateEmployee } from "./firebase.js"; //Employee Methods
+import { validateTypedoc, validateEmail, validateName, validateDoc, validateNum, validatePassword, validateSurname } from "./firebase.js"; //Form validation methods
 import { showMessage } from "./showmessage.js";
 
 const addForm = document.getElementById('addForm') //Storing the form

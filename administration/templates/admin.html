@@ -23,8 +23,16 @@
                 <li>
                     <a lng-tag="s2" href="facturas"><span class='fa fa-barcode'></span></a>
                 </li>
-                <li>
-                    <a lng-tag="s3" href="#"><span class='fa fa-user-plus'></span></a>
+                <li class="nav-item dropdown dropend">
+                    <a lng-tag="s3" class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" role="menu" aria-labelledby="menu1">
+                      <li class="active">
+                        <a style="color:black; text-align: center;" href="registrados" lng-tag="li3_1"></a>
+                      </li>
+                      <li>
+                        <a style="color:black; text-align: center;" href="concurrentes" lng-tag="li3_2"></a>
+                      </li>
+                    </ul>
                 </li>
                 <li>
                     <a lng-tag="s4" href="empleado"><span class='fa fa-group'></span></a>
@@ -69,8 +77,18 @@
                             <li class="nav-item">
                                 <a lng-tag="li2" class="nav-link" href="facturas"></a>
                             </li>
-                            <li class="nav-item">
-                                <a lng-tag="li3" class="nav-link" href="#"></a>
+                            <li class="nav-item dropdown">
+                                <div class="dropdown-center">
+                                  <a lng-tag="li3" class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                                  <ul class="dropdown-menu">
+                                    <li class="active">
+                                      <a style="color:black; text-align: center;" href="registrados" lng-tag="li3_1" class="dropdown-item"></a>
+                                    </li>
+                                    <li>
+                                      <a style="color:black; text-align: center;" href="concurrentes" lng-tag="li3_2" class="dropdown-item"></a>
+                                    </li>
+                                  </ul>
+                                </div>
                             </li>
                             <li class="nav-item">
                                 <a lng-tag="li4" class="nav-link" href="empleado"></a>

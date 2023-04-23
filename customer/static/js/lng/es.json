@@ -57,5 +57,12 @@
     "date": "Fecha",
     "gndr": "Genero",
     "birthdate": "Fecha de Nacimiento",
-    "clear": "<span class='fas fa-eraser'></span> Limpiar"
+    "clear": "<span class='fas fa-eraser'></span> Limpiar",
+    "licores": "Licores",
+    "shots": "Shots",
+    "cuenta": "Cuenta",
+    "menu": "Menu",
+    "signout": "Cerrar Sesion",
+    "register": "Registrarse",
+    "login": "Iniciar Sesion"
 }

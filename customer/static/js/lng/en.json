@@ -57,5 +57,12 @@
     "date": "Date",
     "gndr": "Gender",
     "birthdate": "Birthdate",
-    "clear": "<span class='fas fa-eraser'></span> Clear"
+    "clear": "<span class='fas fa-eraser'></span> Clear",
+    "licores": "Liquors",
+    "shots": "Shots",
+    "cuenta": "Order",
+    "menu": "Menu",
+    "signout": "Log Out",
+    "register": "Sign Up",
+    "login": "Sign In"
 }

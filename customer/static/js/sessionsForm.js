@@ -1,6 +1,6 @@
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js"
-import { auth } from "./firebase.js"
-import { showMessage } from "./showMessage.js"
+import { createUser, auth } from "./firebase.js"
+import { showMessage } from "./showmessage.js"
 
 const signupForm = document.querySelector('#signupForm')
 const loginForm = document.querySelector('#login-form')
@@ -37,11 +37,10 @@ signupForm.addEventListener('submit', async (e) => {
 
     try {
         const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
-
+        createUser(userCredentials.user.uid, userCredentials.user.email)
         const signupModal = document.querySelector('#signupModal')
         const modal = bootstrap.Modal.getInstance(signupModal)
         modal.hide()
-
         showMessage("Welcome " + userCredentials.user.email)
     } catch (error) {
         if (error.code === 'auth/invalid-email') {

@@ -1,9 +1,7 @@
-import { db } from "./firebase.js";
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js"
+import { addUser } from "./firebase.js";
 import { showMessage } from "./showmessage.js";
 const datetime = new Date()
 const regForm = document.querySelector('#regForm')
-const concurrent = "Concurrente"
 
 //Function to solve a problem related with the timezone on the input
 function correction(date) {
@@ -31,15 +29,10 @@ regForm.addEventListener('submit', async e => {
         const date = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear()
         const datetimestamp = day + ", " + datetime.getFullYear() + "/" + (datetime.getMonth() + 1) + "/" + datetime.getDate() + " " + datetime.getHours() + ':' + datetime.getMinutes() + ':' + datetime.getSeconds();
         try {
-            const docRef = await addDoc(collection(db, "users"), {
-                fecha_nacimiento: date,
-                genero: gender,
-                datetime: datetimestamp,
-                tipo: concurrent
-            });
+            addUser(date, gender, datetimestamp)
             setTimeout(() => {
-                window.location.href = "/es/menu";
-            }, 500);
+                window.location.href = "home";
+            }, 200);
         } catch (error) {
             showMessage("Something went wrong: " + error.code, "error");
         }

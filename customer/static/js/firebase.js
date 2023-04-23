@@ -2,7 +2,7 @@
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js"
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
-import { getFirestore, collection, getDocs, onSnapshot, addDoc, deleteDoc, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js"
+import { getFirestore, collection, getDocs, onSnapshot, addDoc, deleteDoc, doc, getDoc, updateDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js"
 import { showMessage } from "./showmessage.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -69,8 +69,28 @@ export const updateProduct = (id, newFields) => updateDoc(doc(db, "products", id
 
 export const getProducts = () => getDocs(collection(db, "products"));
 
-//Functions fro CRUD Concurrent
+//Functions for users
 export const onGetConcurrents = (callback) => onSnapshot(collection(db, "users"), callback);
+
+export const createUser = async (uid, email) => {
+    const rgst = "Si"
+    const userRef = setDoc(doc(db, 'users', uid), {
+        id: uid,
+        email: email,
+        registrado: rgst,
+    })
+    return userRef
+}
+
+export const addUser = async (date, gender, datetimestamp) => {
+    const rgst = "No"
+    await addDoc(collection(db, "users"), {
+        fecha_nacimiento: date,
+        genero: gender,
+        datetime: datetimestamp,
+        registrado: rgst,
+    });
+}
 
 //Functions to validate Forms
 export const validateEmail = (email) => {
