@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-def home(request):
+def homeAdmin(request):
     return render(request, 'admin.html')
 def facturas(request):
     return render(request, 'orders.html')

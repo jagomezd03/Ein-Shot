@@ -64,5 +64,10 @@
     "menu": "Menu",
     "signout": "Cerrar Sesion",
     "register": "Registrarse",
-    "login": "Iniciar Sesion"
+    "login": "Iniciar Sesion",
+    "gender": "Seleccione su genero",
+    "male": "Masculino",
+    "female": "Femenino",
+    "other": "Otros",
+    "continue": "Continuar"
 }

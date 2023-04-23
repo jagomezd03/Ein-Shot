@@ -64,5 +64,10 @@
     "menu": "Menu",
     "signout": "Log Out",
     "register": "Sign Up",
-    "login": "Sign In"
+    "login": "Sign In",
+    "gender": "Select your gender",
+    "male": "Male",
+    "female": "Female",
+    "other": "Others",
+    "continue": "Continue"
 }

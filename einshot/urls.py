@@ -22,7 +22,7 @@ urlpatterns = [
     # Admin path to the DB from sqlite path('admin/', admin.site.urls),
     path('', customerViews.index),
     path('home', customerViews.home),
-    path('admin/',adminViews.home, name="index"),
+    path('admin/',adminViews.homeAdmin, name="index"),
     path('admin/facturas', adminViews.facturas, name='empleado'),
     path('admin/cliente/registrados', adminViews.registrados, name='clientes registrados'),
     path('admin/cliente/concurrentes', adminViews.concurrentes, name='clientes concurrentes'),
