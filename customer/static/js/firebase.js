@@ -85,13 +85,13 @@ export const getProducts = () => getDocs(collection(db, "products"));
 export const onGetUsers = (callback) => onSnapshot(collection(db, "users"), callback);
 
 //Functions for index form
-export const addUser = async (date, gender, datetimestamp) => {
-    const rgst = "No"
+export const addUser = async (fecha_nacimiento, genero, datetime) => {
+    const registrado = "No"
     const q = await addDoc(collection(db, "users"), {
-        fecha_nacimiento: date,
-        genero: gender,
-        datetime: datetimestamp,
-        registrado: rgst,
+        fecha_nacimiento,
+        genero,
+        datetime,
+        registrado,
     });
     return q
 }

@@ -1,4 +1,4 @@
-const productList = document.querySelector('.products')
+const productList = document.querySelector('#products')
 
 export const setupProducts = (data) => {
     if (data.length) {
