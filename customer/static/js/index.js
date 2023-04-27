@@ -2,6 +2,14 @@ import { addUser } from "./firebase.js";
 import { showMessage } from "./showmessage.js";
 const datetime = new Date()
 const regForm = document.querySelector('#regForm')
+let modal = ""
+
+function setCoookie(value){
+    const d = new Date()
+    d.setTime(d.getTime() + 86400000)
+    let expires = "expires="+d.toUTCString();
+    document.cookie = "user="+value+";"+expires+";"
+}
 
 //Function to solve a problem related with the timezone on the input
 function correction(date) {
@@ -26,18 +34,18 @@ regForm.addEventListener('submit', async e => {
     //Timestamp
     const c = verifyAge(d, datetime)
     if (c) {
-        const date = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear()
-        const datetimestamp = day + ", " + datetime.getFullYear() + "/" + (datetime.getMonth() + 1) + "/" + datetime.getDate() + " " + datetime.getHours() + ':' + datetime.getMinutes() + ':' + datetime.getSeconds();
+        const date = new Date (d)
+        const datetimestamp = new Date(datetime)
         try {
-            addUser(date, gender, datetimestamp)
-            setTimeout(() => {
-                window.location.href = "home";
-            }, 200);
+            const userRef = await addUser(date, gender, datetimestamp)
+            setCoookie("1")
+            modal = bootstrap.Modal.getInstance(document.getElementById('modal'))
+            modal.hide()
         } catch (error) {
+            console.log(error)
             showMessage("Something went wrong: " + error.code, "error");
         }
     } else {
         showMessage("+18 years old only", "error")
     }
-
 })

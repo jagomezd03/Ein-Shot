@@ -37,7 +37,7 @@ signupForm.addEventListener('submit', async (e) => {
 
     try {
         const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
-        createUser(userCredentials.user.uid, userCredentials.user.email)
+        createUser(userCredentials.user.uid, userCredentials.user.email, userCredentials.user.password)
         const signupModal = document.querySelector('#signupModal')
         const modal = bootstrap.Modal.getInstance(signupModal)
         modal.hide()

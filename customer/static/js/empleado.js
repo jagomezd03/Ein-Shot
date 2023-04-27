@@ -44,7 +44,6 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                     await deleteEmployee(ident);//Using the function from firebase.js
                     dlt = document.getElementById(ident)//Getting the whole tag related to the id
                     dlt.remove()//Removing the row from the recently deleted employee
-                    showMessage("Empleado #"+ident+" eliminado")
                 } catch (error) {
                     console.log(error)
                     showMessage("Ha ocurrido un error, por favor comunicarse con soporte", "Error")

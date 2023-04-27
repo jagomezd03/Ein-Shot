@@ -2,119 +2,204 @@
 <html lang="es">
 
 <head>
-    <title>Ein Admin - Index</title>
-    {% load static %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="shortcut icon" href="{% static 'images/sprite.png' %}" type="image/x-icon">
+  <title>Ein Admin - Index</title>
+  <meta charset="utf-8">
+  {% load static %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="shortcut icon" href="{% static 'images/sprite.png' %}" type="image/x-icon">
+  <script src="{% static 'js/session.js' %}" type="module"></script>
 </head>
 
 <body id="page-top" onload="translate('es','lng-tag')">
-    <div class="wrapper d-flex align-items-stretch">
-        <nav id="sidebar" class="active">
-            <h1><a href="#" class="logo"><span></span>Ein</a></h1>
-            <ul class="list-unstyled components mb-5">
-                <li class="active">
-                    <a href="#" lng-tag="s1"><span class='fa fa-home'></span></a>
-                </li>
-                <li>
-                    <a lng-tag="s2" href="facturas"><span class='fa fa-barcode'></span></a>
-                </li>
-                <li class="nav-item dropdown dropend">
-                    <a lng-tag="s3" class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" role="menu" aria-labelledby="menu1">
-                      <li class="active">
-                        <a style="color:black; text-align: center;" href="registrados" lng-tag="li3_1"></a>
-                      </li>
-                      <li>
-                        <a style="color:black; text-align: center;" href="concurrentes" lng-tag="li3_2"></a>
-                      </li>
-                    </ul>
-                </li>
-                <li>
-                    <a lng-tag="s4" href="empleado"><span class='fa fa-group'></span></a>
-                </li>
-                <li>
-                    <a lng-tag="s5" href="search"><span class='fa fa-archive'></span></a>
-                </li>
-                <li>
-                    <a lng-tag="s6" href="producto"><span class='fa fa-briefcase'></span></a>
-                </li>
-                <li>
-                    <a lng-tag="s7" href="#"><span class='fa fa-power-off'></span></a>
-                </li>
-                <li class="nav-item dropdown dropend">
-                    <a lng-tag="language" class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" role="menu" aria-labelledby="menu1">
-                        <li><a style="color:black; text-align: center;" class="dropdown-item" id="enTranslator" href="javascript:void(0);">EN</a></li>
-                        <li><a style="color:black; text-align: center" class="dropdown-item" id="esTranslator" href="javascript:void(0);">ES</a></li>
-                    </ul>
-                </li>
-            </ul>
+  <div class="wrapper d-flex align-items-stretch">
+    <!--Sidebar-->
+    <nav id="sidebar" class="active">
+      <h1><a class="logo">Ein</a></h1>
+      <ul class="list-unstyled components mb-5">
+        <li class="active">
+          <a lng-tag="s1" href="#"></a>
+        </li>
+        <li>
+          <a lng-tag="s2" href="facturas"></a>
+        </li>
+        <li class="nav-item dropdown dropend">
+          <a lng-tag="s3" class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" role="menu" aria-labelledby="menu1">
+            <li class="active">
+              <a style="color:black; text-align: center;" href="registrados" lng-tag="li3_1"></a>
+            </li>
+            <li>
+              <a style="color:black; text-align: center;" href="concurrentes" lng-tag="li3_2"></a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a lng-tag="s4" href="empleado"></a>
+        </li>
+        <li>
+          <a lng-tag="s5" href="consultas"></a>
+        </li>
+        <li>
+          <a lng-tag="s6" href="productos"></a>
+        </li>
+        <li>
+          <a lng-tag="s7" role="button" id="logoutButton"></a>
+        </li>
+        <li class="nav-item dropdown dropend">
+          <a lng-tag="language" class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false"></a>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" role="menu" aria-labelledby="menu1">
+            <li><a style="color:black; text-align: center;" class="dropdown-item" id="enTranslator"
+                href="javascript:void(0);">EN</a></li>
+            <li><a style="color:black; text-align: center" class="dropdown-item" id="esTranslator"
+                href="javascript:void(0);">ES</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!--Sidebaar footer-->
+      <div class="footer">
+        <p lng-tag="copyright"></p>
+      </div>
+    </nav>
 
-            <div class="footer">
-                <p lng-tag="copyright"></p>
-            </div>
-        </nav>
-
-        <!-- Page Content  -->
-        <div id="content" class="p-4 p-md-5">
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                        <i class="fa fa-bars"></i>
-                        <span class="sr-only"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a lng-tag="s1" class="nav-link" href="#"><span class='fa fa-home'></span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a lng-tag="li2" class="nav-link" href="facturas"></a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <div class="dropdown-center">
-                                  <a lng-tag="li3" class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-                                  <ul class="dropdown-menu">
-                                    <li class="active">
-                                      <a style="color:black; text-align: center;" href="registrados" lng-tag="li3_1" class="dropdown-item"></a>
-                                    </li>
-                                    <li>
-                                      <a style="color:black; text-align: center;" href="concurrentes" lng-tag="li3_2" class="dropdown-item"></a>
-                                    </li>
-                                  </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a lng-tag="li4" class="nav-link" href="empleado"></a>
-                            </li>
-                            <li class="nav-item">
-                                <a lng-tag="li5" class="nav-link" href="search"></a>
-                            </li>
-                            <li class="nav-item">
-                                <a lng-tag="li6" class="nav-link" href="producto"></a>
-                            </li>
-                        </ul>
-                    </div>
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5">
+      <!--Navbar-->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a lng-tag="s1" class="nav-link" href="#"></a>
+              </li>
+              <li class="nav-item">
+                <a lng-tag="li2" class="nav-link" href="facturas"></a>
+              </li>
+              <li class="nav-item dropdown">
+                <div class="dropdown-center">
+                  <a lng-tag="li3" class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"></a>
+                  <ul class="dropdown-menu">
+                    <li class="active">
+                      <a style="color:black; text-align: center;" href="registrados" lng-tag="li3_1"
+                        class="dropdown-item"></a>
+                    </li>
+                    <li>
+                      <a style="color:black; text-align: center;" href="concurrentes" lng-tag="li3_2"
+                        class="dropdown-item"></a>
+                    </li>
+                  </ul>
                 </div>
-            </nav>
-            <!--<h2 lng-tag="welcome" class="mb-4"></h2>
-            <p lng-tag="welcome_p"></p>-->
-            {% block content %}
-            {% endblock content %}
+              </li>
+              <li class="nav-item">
+                <a lng-tag="li4" class="nav-link" href="empleado"></a>
+              </li>
+              <li class="nav-item">
+                <a lng-tag="li5" class="nav-link" href="consultas"></a>
+              </li>
+              <li class="nav-item">
+                <a lng-tag="li6" class="nav-link" href="productos"></a>
+              </li>
+            </ul>
+          </div>
         </div>
+      </nav>
+      <!--Content-->
+      <h3 id="welcome"></h3>
+      <p lng-tag="welcome"></p>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <h5>Genero</h5>
+            <div id="chartGender" style="position: relative;"></div>
+          </div>
+          <div class="col-md-8">
+            <h5>Usuarios por Dia en este mes</h5>
+            <div id="chartUserPerDay" style="position: relative;"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <h5>Performance</h5>
+            <div id="chartSales" style="position: relative;"></div>
+          </div>
+          <div class="col-md-4">
+            <h5>Ordenes Recientes</h5>
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                1 Garrafa Aguardiente Tapa Azul, 2 Red Bull x 250ml
+                <button type="button" class="btn btn-info" disabled>14</button>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                1 Buchanans Master x 750ml
+                <button type="button" class="btn btn-info" disabled>5</button>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                6 Corona x355ml
+                <button type="button" class="btn btn-info" disabled>2</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="{% static 'js/base.js' %}"></script>
+    <!--Modal Begin-->
+    <link rel="stylesheet" href="{% static 'css/empleado.css' %}">
+    <div class="modal fade" id="modal" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1"
+      aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" style="background: none; border: none;">
+          <div class="login-box">
+            <form id="sessionForm">
+              <div class="tab">
+                <div class="user-box">
+                  <img src="{% static 'images/icon.png' %}" alt="Logo" height="200px" width="200px">
+                </div>
+                <div class="user-box">
+                  <div class="input">
+                    <input type="text" id="emailSession" placeholder="Email" required>
+                  </div>
+                </div>
+                <div class="user-box">
+                  <div class="input">
+                    <input type="password" id="pass" placeholder="******" required>
+                  </div>
+                </div>
+                <div class="user-box">
+                  <button style="--clr:#0FF0FC"><span lng-tag="continue"></span><i></i></button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Scripts-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="{% static 'js/graphs.js' %}" type="module"></script>
+    <script src="{% static 'js/base.js' %}" type="module"></script>
     <script src="{% static 'js/translate.js' %}"></script>
+    <script src="{% static 'js/indexhome.js' %}" type="module"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </body>
 
 </html>

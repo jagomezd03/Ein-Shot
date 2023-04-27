@@ -2,7 +2,7 @@
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js"
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
-import { getFirestore, collection, getDocs, onSnapshot, addDoc, deleteDoc, doc, getDoc, updateDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js"
+import { getFirestore, collection, getDocs, onSnapshot, addDoc, deleteDoc, doc, getDoc, updateDoc, query, where } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js"
 import { showMessage } from "./showmessage.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -24,6 +24,18 @@ export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 export const auth = getAuth(app)
 export const db = getFirestore(app)
+
+//Functions for session employee
+export const getEmployeeSession = async (email, pass) => {
+    const q = query(collection(db, "empleados"), where("email", "==", email))
+    const w = await getDocs(q)
+    w.forEach((doc) => {
+        const z = doc.data()
+        if (z.contraseña == pass) {
+            sessionStorage.setItem('login', z.nombre + " " + z.apellido)
+        }
+    });
+}
 
 //Functions for CRUD Employee
 export const saveEmployee = async (nombre, apellido, tipoDoc, documento, celular, contraseña, email, fecha) => {
@@ -69,28 +81,29 @@ export const updateProduct = (id, newFields) => updateDoc(doc(db, "products", id
 
 export const getProducts = () => getDocs(collection(db, "products"));
 
-//Functions for users
-export const onGetConcurrents = (callback) => onSnapshot(collection(db, "users"), callback);
+//Functiosn for users
+export const onGetUsers = (callback) => onSnapshot(collection(db, "users"), callback);
 
-export const createUser = async (uid, email) => {
-    const rgst = "Si"
-    const userRef = setDoc(doc(db, 'users', uid), {
-        id: uid,
-        email: email,
-        registrado: rgst,
-    })
-    return userRef
-}
-
+//Functions for index form
 export const addUser = async (date, gender, datetimestamp) => {
     const rgst = "No"
-    await addDoc(collection(db, "users"), {
+    const q = await addDoc(collection(db, "users"), {
         fecha_nacimiento: date,
         genero: gender,
         datetime: datetimestamp,
         registrado: rgst,
     });
+    return q
 }
+
+//Functions for crud orders
+export const onGetOrders = (callback) => onSnapshot(collection(db, "orders"), callback)
+
+export const getOrder = async (id) => {
+    const docRef = doc(db, "orders", id)
+    const docSnap = await getDoc(docRef)
+    return docSnap
+};
 
 //Functions to validate Forms
 export const validateEmail = (email) => {
@@ -138,4 +151,11 @@ export const validatePassword = (password) => {
     } else if ((password.length) < 6) {
         showMessage("La contraseña es muy debil", "Error")
     } else { return true }
+}
+
+//insert something
+export const insert = async (sector, insertThat) => {
+    if (sector.value != null || sector.value != "") {
+        sector.innerHTML = insertThat;
+    } else { sector.innerHTML = ""; }
 }

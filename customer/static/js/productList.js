@@ -15,6 +15,12 @@ export const setupProducts = (data) => {
         })
         productList.innerHTML = html
     } else {
-        productList.innerHTML = '<h1>There are no promos yet</h1>'
+        productList.innerHTML = '<h1>There are no products</h1>'
     }
 }
+
+export const setupPromos = (data) => {
+    if(data == "true") {
+        productList.innerHTML += "<h1>Here you'll see promotions</h1>"
+    }
+} 
