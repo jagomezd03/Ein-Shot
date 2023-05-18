@@ -90,5 +90,16 @@
     "darkmode": "Modo Oscuro",
     "noalcohol": "Sin Alcohol",
     "privacypolicy": "Politica de Privacidad",
-    "useterms": "Terminos de Uso"
+    "useterms": "Terminos de Uso",
+    "yes": "Si",
+    "no": "No",
+    "private": "Privado",
+    "public": "Publico",
+    "save": "Guardar",
+    "settings1": "Permitir que te envien bebidas desde otras mesas",
+    "settings2": "(Añadir Otra Opcion)",
+    "settings3": "Privacidad",
+    "settings4": "Habilitar Chat",
+    "settings5": "Limite de Cuenta",
+    "comingsoon": "Muy Pronto..."
 }

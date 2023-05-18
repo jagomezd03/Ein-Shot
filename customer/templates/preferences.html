@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ein Shot - Category</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="{% static 'images/sprite.png' %}" type="image/x-icon">
+    <script src="{% static 'js/index.js' %}" type="module"></script>
+    <script src="{% static 'js/sessionsForm.js' %}" type="module"></script>
+    <script src="{% static 'js/home.js' %}" type="module"></script>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body id="page-top" onload="translate('en','lng-tag')">
+    <nav class="sidebar close" id="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="images/sprite.png" alt="">
+                </span>
+                <div class="text logo-text">
+                    <span class="name">Ein Shot</span>
+                </div>
+            </div>
+            <i class='bx bx-x toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text" lng-tag="home"></span>
+                        </a>
+                    </li>
+                    <li class="nav-link dropdown-center">
+                        <a href="#" data-bs-toggle="dropdown">
+                            <i class='bx bx-beer icon'></i>
+                            <span class="text nav-text" lng-tag=""></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">Aguila</a></li>
+                            <li><a class="dropdown-item" href="#">Budweiser</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-drink icon'></i>
+                            <span class="text nav-text">Shots</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-discount icon'></i>
+                            <span class="text nav-text" lng-tag="promos"></span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-cookie icon'></i>
+                            <span class="text nav-text" lng-tag="snacks"></span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-wine icon'></i>
+                            <span class="text nav-text" lng-tag="wines"></span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-bolt icon'></i>
+                            <span class="text nav-text" lng-tag="energizante"></span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-cog icon'></i>
+                            <span class="text nav-text" lng-tag="preferences"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a class="logged-out" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class='bx bx-user icon'></i>
+                        <span class="text nav-text" lng-tag="login"></span>
+                    </a>
+                </li>
+                <li class="">
+                    <a class="logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">
+                        <i class='bx bx-user-plus icon'></i>
+                        <span class="text nav-text" lng-tag="register"></span>
+                    </a>
+                </li>
+                <li class="">
+                    <a class="logged-in" id="logout" href="#">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text" lng-tag="signout"></span>
+                    </a>
+                </li>
+                <li class="dropdown-center">
+                    <a href="#" data-bs-toggle="dropdown">
+                        <i class='bx bx-world icon'></i>
+                        <span class="text nav-text" lng-tag="language"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="javascript:void(0)" id="esTranslator" lng-tag="es"></a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)" id="enTranslator" lng-tag="en"></a></li>
+                    </ul>
+                </li>
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text" lng-tag="darkmode"></span>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <section class="home">
+        <div class="navbarshot sticky-top rownavbar">
+            <div class="coltoggle">
+              <a class="btn btn-outline-light toggle userbuttontoggle icon" id="hola"><span class='bx bx-list-ul bx-sm icon'></span></a>
+              <img class="imgbrandnavbar" src="images/recortado.png" alt="">
+            </div>
+            <div class="colsearch">
+              <form>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Search" aria-describedby="button-addon2">
+                  <button class="btn btn-outline-secondary icon" type="button" id="button-addon2"><span class="bx bx-search-alt bs-sm icon"></span></button>
+                </div>
+              </form>
+            </div>
+            <div class="colcart">
+              <a class="btn btn-outline-light toggle userbuttontoggle icon" id="user"><span class='bx bx-cart-alt bx-sm icon'></span></a>
+            </div>
+        </div>
+
+        <div class="preferences">
+            <div class="preferences-container">
+                <h5 lng-tag="preferences"></h5>
+                <div class="settings">
+                    <p class="collabel" lng-tag="settings1"></p>
+                    <div class="form-check colcheck">
+                        <input class="form-check-input" type="radio" name="flexRadioDefaultDrinks" id="flexRadioDefaultDrinks1">
+                        <label class="form-check-label" for="flexRadioDefaultDrinks1" lng-tag="yes"></label>
+                    </div>
+                    <div class="form-check colcheck">
+                        <input class="form-check-input" type="radio" name="flexRadioDefaultDrinks" id="flexRadioDefaultDrinks2" checked>
+                        <label class="form-check-label" for="flexRadioDefaultDrinks2" lng-tag="no"></label>
+                    </div>
+                </div>
+                <div class="settings">
+                    <p class="collabel" lng-tag="settings2"></p>
+                    <div class="form-check colcheck">
+                        <input class="form-check-input" type="radio" name="flexRadioDefaultTables" id="flexRadioDefaultTables1">
+                        <label class="form-check-label" for="flexRadioDefaultTables1" lng-tag="yes"></label>
+                    </div>
+                    <div class="form-check colcheck">
+                        <input class="form-check-input" type="radio" name="flexRadioDefaultTables" id="flexRadioDefaultTables2" checked>
+                        <label class="form-check-label" for="flexRadioDefaultTables2" lng-tag="no"></label>
+                    </div>
+                </div>
+                <div class="settings">
+                    <p class="collabel" lng-tag="settings3"></p>
+                    <div class="form-check colcheck">
+                        <input class="form-check-input" type="radio" name="flexRadioDefaultPrivacy" id="flexRadioDefaultPrivacy1">
+                        <label class="form-check-label" for="flexRadioDefaultPrivacy1" lng-tag="private"></label>
+                    </div>
+                    <div class="form-check colcheck">
+                        <input class="form-check-input" type="radio" name="flexRadioDefaultPrivacy" id="flexRadioDefaultPrivacy2" checked>
+                        <label class="form-check-label" for="flexRadioDefaultPrivacy2" lng-tag="public"></label>
+                    </div>
+                </div>
+                <div class="settings">
+                    <p class="collabel" lng-tag="settings4"></p>
+                    <div class="form-check colcheck">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+                        <label class="form-check-label" for="flexRadioDefault5" lng-tag="yes"></label>
+                    </div>
+                    <div class="form-check colcheck">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked>
+                        <label class="form-check-label" for="flexRadioDefault6" lng-tag="no"></label>
+                    </div>
+                </div>
+                <div class="settings">
+                    <p class="collabel" lng-tag="settings5"></p>
+                    <div class="input-group flex-nowrap colcheck">
+                        <span class="input-group-text" id="addon-wrapping">$</span>
+                        <input type="number" class="form-control" placeholder="100.000" aria-describedby="addon-wrapping">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-outline-success userbuttontoggle" lng-tag="save"></button>
+            </div>
+            <div class="chat">
+                <h5>Chat</h5>
+                <p lng-tag="comingsoon"></p>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md">
+                        <a class="btn btn-outline-light toggle userbuttontoggle icon"><span class='bx bxl-facebook bx-sm icon'></span></a>
+                        <a class="btn btn-outline-light toggle userbuttontoggle icon"><span class='bx bxl-twitter bx-sm icon'></span></a>
+                        <a class="btn btn-outline-light toggle userbuttontoggle icon"><span class='bx bxl-instagram bx-sm icon'></span></a>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md">
+                        <p><a href="#" lng-tag="privacy-policy"></a> | <a href="#" lng-tag="useterms"></a></p>
+                        <p lng-tag="copyright"></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <!-- Modal Login-->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark" style="top: -50%;">
+                <div class="modal-header">
+                    <h1 lng-tag="login" class="modal-title fs-5" id="exampleModalLabel"></h1>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form">
+                        <label lng-tag="email" for="email"></label>
+                        <input type="text" class="form-control mb-3" id="loginEmail" placeholder="einshot@einshot.com" required>
+                        <label lng-tag="password" for="password"></label>
+                        <input type="password" class="form-control mb-3" id="loginPassword" placeholder="******" required>
+                        <button lng-tag="login" type="submit" class="btn btn-primary"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Signup-->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark" style="top: -50%;">
+                <div class="modal-header">
+                    <h1 lng-tag="register" class="modal-title fs-5" id="exampleModalLabel"></h1>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="signupForm">
+                        <label lng-tag="email" for="email"></label>
+                        <input type="text" class="form-control mb-3" id="signupEmail" placeholder="einshot@einshot.com" required>
+                        <label lng-tag="password" for="password"></label>
+                        <input type="password" class="form-control mb-3" id="signupPassword" placeholder="******" required>
+                        <button lng-tag="register" type="submit" class="btn btn-primary"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modal" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="top: 45%;">
+            <div class="modal-content" style="background: none;border: none;">
+                <div class="login-box">
+                    <form id="regForm">
+                        <div class="tab">
+                            <div class="user-box">
+                                <img src="{% static 'images/icon.png' %}" alt="Logo" height="200px" width="200px">
+                            </div>
+                            <div class="user-box">
+                                <div class="select">
+                                    <select id="gender" required>
+                                        <option value="" disabled selected lng-tag="gender"></option>
+                                        <option value="M" lng-tag="male"></option>
+                                        <option value="F" lng-tag="female"></option>
+                                        <option value="O" lng-tag="other"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="user-box">
+                                <div class="input">
+                                    <input type="date" id="birthdate" required>
+                                </div>
+                            </div>
+                            <div class="user-box">
+                                <button style="--clr:#0FF0FC"><span lng-tag="continue"></span><i></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="{% static 'js/translate.js' %}"></script>
+</body>
+
+</html>

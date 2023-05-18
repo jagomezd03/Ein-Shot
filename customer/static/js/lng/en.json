@@ -90,5 +90,16 @@
     "darkmode": "Dark Mode",
     "noalcohol": "No Alcohol",
     "privacypolicy": "Privacy Policy",
-    "useterms": "Terms of Use"
+    "useterms": "Terms of Use",
+    "yes": "Yes",
+    "no": "No",
+    "private": "Private",
+    "public": "Public",
+    "save": "Save",
+    "settings1": "People from other tables can invite you some drinks",
+    "settings2": "(Add another option)",
+    "settings3": "Privacy",
+    "settings4": "Enable Chat",
+    "settings5": "Account Spend Limit",
+    "comingsoon": "Coming Soon..."
 }
