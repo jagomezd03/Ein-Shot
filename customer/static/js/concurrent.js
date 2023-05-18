@@ -9,7 +9,6 @@ function verifyToday(date) {
     const d = date.getDate()
     const y = date.getFullYear()
     const actualDate = new Date()
-    console.log(m, actualDate.getDate())
     if (!(actualDate.getFullYear()) == y) {
         return false
     } else if (!(actualDate.getMonth()) == m) {
