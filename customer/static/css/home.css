@@ -340,6 +340,10 @@ body.dark .home .text {
     color: var(--text-color);
 }
 
+.titlediv {
+    padding-left: 10%;
+}
+
 .navbarshot .userbuttontoggle {
     color: var(--light-color);
     border: none;
@@ -620,7 +624,6 @@ footer .container {
     left: 10%;
     width: 80%;
     position: relative;
-    margin-top: 5vh;
     margin-bottom: 4vh;
 }
 
