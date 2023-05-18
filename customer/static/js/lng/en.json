@@ -16,7 +16,7 @@
     "li6": "Products",
     "welcome": "Welcome",
     "welcome_p": "Date:",
-    "copyright": "Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Built by Juan Andres Gomez",
+    "copyright": "&copy; 2023 Ein Company. All Rights Reserved.",
     "newEm": "<span class='fas fa-plus'></span> New Employee",
     "newE": "New Employee",
     "updE": "Update Employee",
@@ -77,5 +77,18 @@
     "cuenta": "Order",
     "login": "Sign In",
     "register": "Sign Up",
-    "signout": "Log Out"
+    "signout": "Log Out",
+    "home": "Home",
+    "beers": "Beers",
+    "promos": "Promotions",
+    "snacks": "Snacks",
+    "wines": "Wines",
+    "energizante": "Energy Drinks",
+    "preferences": "Preferences",
+    "en": "English",
+    "es": "Spanish",
+    "darkmode": "Dark Mode",
+    "noalcohol": "No Alcohol",
+    "privacypolicy": "Privacy Policy",
+    "useterms": "Terms of Use"
 }

@@ -16,7 +16,7 @@
     "li6": "Productos",
     "welcome": "Bienvenido",
     "welcome_p": "Fecha:",
-    "copyright": "Derechos de Autor &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Hecho por Juan Andres Gomez",
+    "copyright": "&copy; 2023 Ein Company. Todos los derechos reservados.",
     "newEm": "<span class='fas fa-plus'></span> Nuevo Empleado",
     "newE": "Nuevo empleado",
     "updE": "Actualizar empleado",
@@ -77,5 +77,18 @@
     "cuenta": "Cuenta",
     "login": "Iniciar Sesion",
     "register": "Registrarse",
-    "signout": "Cerrar Sesion"
+    "signout": "Cerrar Sesion",
+    "home": "Inicio",
+    "beers": "Cervezas",
+    "promos": "Promociones",
+    "snacks": "Pasabocas",
+    "wines": "Wines",
+    "energizante": "Energizantes",
+    "preferences": "Preferencias",
+    "en": "Ingles",
+    "es": "Español",
+    "darkmode": "Modo Oscuro",
+    "noalcohol": "Sin Alcohol",
+    "privacypolicy": "Politica de Privacidad",
+    "useterms": "Terminos de Uso"
 }

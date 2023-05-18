@@ -35,12 +35,12 @@ function translate(lng, tagAttr) {
 	translate.init(tagAttr, lng);
 	translate.process();
 	if (lng == 'en') {
-		$("#enTranslator").css('background', '#007bff');
-		$("#esTranslator").css('background', '#fff');
+		$("#enTranslator").css('background', 'var(--primary-color)');
+		$("#esTranslator").css('background', 'var(--sidebar-color)');
 	}
 	if (lng == 'es') {
-		$("#esTranslator").css('background', '#007bff');
-		$("#enTranslator").css('background', '#fff');
+		$("#esTranslator").css('background', 'var(--primary-color)');
+		$("#enTranslator").css('background', 'var(--sidebar-color)');
 	}
 }
 $(document).ready(function () {
