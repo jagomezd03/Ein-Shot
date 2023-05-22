@@ -21,9 +21,10 @@ from administration import views as adminViews
 urlpatterns = [
     # Admin path to the DB from sqlite path('admin/', admin.site.urls),
     path('', customerViews.index),
-    path('preferences', customerViews.preferences, name="preferences"),
-    path('category/', customerViews.category, name="catgory template"),
-    path('admin/',adminViews.homeAdmin, name="index"),
+    path('preferences/', customerViews.preferences, name="preferences"),
+    path('category/', customerViews.category, name="categorytemplate"),
+    path('carrito/', customerViews.carrito, name="carrito"),
+    path('admin/',adminViews.homeAdmin, name="adminindex"),
     path('admin/facturas', adminViews.facturas, name='empleado'),
     path('admin/registrados', adminViews.registrados, name='clientes registrados'),
     path('admin/concurrentes', adminViews.concurrentes, name='clientes concurrentes'),

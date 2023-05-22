@@ -487,6 +487,53 @@ footer .container {
     margin-top: 100px;
 }
 
+.carrito {
+    width: 90%;
+    position: relative;
+    left: 5%;
+    display: grid;
+    grid-template: 'col1 col2';
+}
+
+.carrito-header {
+    color: var(--light-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem 1rem 2rem;
+    border-bottom: 1px solid;
+}
+
+.carritocol1 {
+    margin-top: 2rem;
+    background-color: var(--primary-color-light);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.4);
+    border-radius: 0.5rem;
+    padding: 2rem 3rem;
+    height: auto;
+    max-width: 75%;
+    overflow: auto;
+    grid-area: 'col1';
+}
+
+.table-responsive {
+    overflow-x: auto;
+    max-height: 65vh;
+}
+
+.carritocol2 {
+    margin-top: 2rem;
+    background-color: var(--primary-color-light);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.4);
+    border-radius: 0.5rem;
+    padding: 2rem 3rem;
+    height: auto;
+    width: 25%;
+    left: 75%;
+    overflow: auto;
+    position: absolute;
+    grid-area: 'col2';
+}
+
 .dropdown-center .dropdown-menu {
     width: 95%;
     background-color: var(--sidebar-color);

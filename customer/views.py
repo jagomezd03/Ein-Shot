@@ -9,3 +9,6 @@ def category(request):
 
 def preferences(request):
     return render(request, 'preferences.html')
+
+def carrito(request):
+    return render(request, 'carrito.html')
