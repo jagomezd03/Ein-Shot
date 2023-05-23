@@ -36,11 +36,15 @@ function translate(lng, tagAttr) {
 	translate.process();
 	if (lng == 'en') {
 		$("#enTranslator").css('background', 'var(--primary-color)');
+		$("#enTranslator").css('color', 'var(--primary-color-light)');
 		$("#esTranslator").css('background', 'var(--sidebar-color)');
+		$("#esTranslator").css('color', 'var(--text-color)');
 	}
 	if (lng == 'es') {
 		$("#esTranslator").css('background', 'var(--primary-color)');
+		$("#esTranslator").css('color', 'var(--primary-color-light)');
 		$("#enTranslator").css('background', 'var(--sidebar-color)');
+		$("#enTranslator").css('color', 'var(--text-color)');
 	}
 }
 $(document).ready(function () {

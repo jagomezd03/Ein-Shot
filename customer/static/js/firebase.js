@@ -159,3 +159,24 @@ export const insert = async (sector, insertThat) => {
         sector.innerHTML = insertThat;
     } else { sector.innerHTML = ""; }
 }
+
+export const loginCheck = async (loggedout, loggedin) => {
+    const session = sessionStorage.getItem('loginUser')
+    if (session!=null) {
+        await loggedout.forEach((doc) => {
+            $(doc).css('display', 'none')
+        })
+        await loggedin.forEach((doc) => {
+            $(doc).css('display', 'block')
+        })
+        console.log(session)
+    } else {
+        await loggedout.forEach((doc) => {
+            $(doc).css('display', 'block')
+        })
+        await loggedin.forEach((doc) => {
+            $(doc).css('display', 'none')
+        })
+        console.log(session)
+    }
+}

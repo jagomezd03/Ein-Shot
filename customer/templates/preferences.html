@@ -10,9 +10,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="shortcut icon" href="{% static 'images/sprite.png' %}" type="image/x-icon">
-    <script src="{% static 'js/index.js' %}" type="module"></script>
-    <script src="{% static 'js/sessionsForm.js' %}" type="module"></script>
-    <script src="{% static 'js/home.js' %}" type="module"></script>
+    <script src="{% static 'js/verifyAge.js' %}" type="module"></script>
+    <script src="{% static 'js/session.js' %}" type="module"></script>
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -31,7 +30,6 @@
             </div>
             <i class='bx bx-x toggle'></i>
         </header>
-
         <div class="menu-bar">
             <div class="menu">
                 <ul class="menu-links">
@@ -85,32 +83,31 @@
                     </li>
                 </ul>
             </div>
-
             <div class="bottom-content">
-                <li class="">
-                    <a class="logged-out" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <li class="logged-out">
+                    <a data-bs-toggle="modal" data-bs-target="#loginModal">
                         <i class='bx bx-user icon'></i>
                         <span class="text nav-text" lng-tag="login"></span>
                     </a>
                 </li>
-                <li class="">
-                    <a class="logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">
+                <li class="logged-out">
+                    <a data-bs-toggle="modal" data-bs-target="#signupModal">
                         <i class='bx bx-user-plus icon'></i>
                         <span class="text nav-text" lng-tag="register"></span>
                     </a>
                 </li>
-                <li class="">
-                    <a class="logged-in" id="logout" href="#">
+                <li class="logged-in">
+                    <a id="logout">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text" lng-tag="signout"></span>
                     </a>
                 </li>
                 <li class="dropdown-center">
-                    <a href="#" data-bs-toggle="dropdown">
+                    <a data-bs-toggle="dropdown">
                         <i class='bx bx-world icon'></i>
                         <span class="text nav-text" lng-tag="language"></span>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark">
+                    <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="javascript:void(0)" id="esTranslator" lng-tag="es"></a></li>
                         <li><a class="dropdown-item" href="javascript:void(0)" id="enTranslator" lng-tag="en"></a></li>
                     </ul>
@@ -128,26 +125,30 @@
             </div>
         </div>
     </nav>
-
     <section class="home">
         <div class="navbarshot sticky-top rownavbar">
             <div class="coltoggle">
-              <a class="btn btn-outline-light toggle userbuttontoggle icon" id="hola"><span class='bx bx-list-ul bx-sm icon'></span></a>
-              <img class="imgbrandnavbar" src="{% static 'images/recortado.png' %}" alt="">
+                <a class="btn btn-outline-light toggle userbuttontoggle icon" id="hola">
+                    <span class='bx bx-list-ul bx-sm icon'></span>
+                </a>
+                <img class="imgbrandnavbar" src="{% static 'images/recortado.png' %}" alt="">
             </div>
             <div class="colsearch">
-              <form>
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Search" aria-describedby="button-addon2">
-                  <button class="btn btn-outline-secondary icon" type="button" id="button-addon2"><span class="bx bx-search-alt bs-sm icon"></span></button>
-                </div>
-              </form>
+                <form>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary icon" type="button" id="button-addon2">
+                            <span class="bx bx-search-alt bs-sm icon"></span>
+                        </button>
+                    </div>
+                </form>
             </div>
             <div class="colcart">
-              <a class="btn btn-outline-light toggle userbuttontoggle icon" href="/carrito/" id="user"><span class='bx bx-cart-alt bx-sm icon'></span></a>
+                <a class="btn btn-outline-light toggle userbuttontoggle icon" href="/carrito/" id="user">
+                    <span class='bx bx-cart-alt bx-sm icon'></span>
+                </a>
             </div>
         </div>
-
         <div class="preferences">
             <div class="preferences-container">
                 <h5 lng-tag="preferences"></h5>
@@ -213,12 +214,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md">
-                        <a class="btn btn-outline-light toggle userbuttontoggle icon"><span class='bx bxl-facebook bx-sm icon'></span></a>
-                        <a class="btn btn-outline-light toggle userbuttontoggle icon"><span class='bx bxl-twitter bx-sm icon'></span></a>
-                        <a class="btn btn-outline-light toggle userbuttontoggle icon"><span class='bx bxl-instagram bx-sm icon'></span></a>
+                        <a class="btn btn-outline-light toggle userbuttontoggle icon">
+                            <span class='bx bxl-facebook bx-sm icon'></span>
+                        </a>
+                        <a class="btn btn-outline-light toggle userbuttontoggle icon">
+                            <span class='bx bxl-twitter bx-sm icon'></span>
+                        </a>
+                        <a class="btn btn-outline-light toggle userbuttontoggle icon">
+                            <span class='bx bxl-instagram bx-sm icon'></span>
+                        </a>
                     </div>
                 </div>
-                <br>
                 <div class="row">
                     <div class="col-md">
                         <p><a href="#" lng-tag="privacypolicy"></a> | <a href="#" lng-tag="useterms"></a></p>
@@ -231,7 +237,7 @@
     <!-- Modal Login-->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content bg-dark" style="top: -50%;">
+            <div class="modal-content" style="top: -50%;">
                 <div class="modal-header">
                     <h1 lng-tag="login" class="modal-title fs-5" id="exampleModalLabel"></h1>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -242,7 +248,7 @@
                         <input type="text" class="form-control mb-3" id="loginEmail" placeholder="einshot@einshot.com" required>
                         <label lng-tag="password" for="password"></label>
                         <input type="password" class="form-control mb-3" id="loginPassword" placeholder="******" required>
-                        <button lng-tag="login" type="submit" class="btn btn-primary"></button>
+                        <button lng-tag="login" type="submit" class="btn btn-outline-primary userbuttontoggle"></button>
                     </form>
                 </div>
             </div>
@@ -251,7 +257,7 @@
     <!-- Modal Signup-->
     <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content bg-dark" style="top: -50%;">
+            <div class="modal-content" style="top: -50%;">
                 <div class="modal-header">
                     <h1 lng-tag="register" class="modal-title fs-5" id="exampleModalLabel"></h1>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -262,7 +268,7 @@
                         <input type="text" class="form-control mb-3" id="signupEmail" placeholder="einshot@einshot.com" required>
                         <label lng-tag="password" for="password"></label>
                         <input type="password" class="form-control mb-3" id="signupPassword" placeholder="******" required>
-                        <button lng-tag="register" type="submit" class="btn btn-primary"></button>
+                        <button lng-tag="register" type="submit" class="btn btn-outline-primary userbuttontoggle"></button>
                     </form>
                 </div>
             </div>

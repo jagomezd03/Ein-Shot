@@ -366,6 +366,24 @@ footer .userbuttontoggle {
     border: none;
 }
 
+.modal-content .userbuttontoggle {
+    border: none;
+    color: var(--primary-color-light);
+    background-color: var(--primary-color);
+}
+
+body.dark .modal-content .userbuttontoggle {
+    color: var(--light-color);
+}
+
+.sidebar .dropdown-item {
+    color: var(--light-color);
+}
+
+.modal-content .userbuttontoggle:hover {
+    box-shadow: inset;
+}
+
 .preferences-container .userbuttontoggle:hover {
     color: var(--primary-color-light);
 }
@@ -550,6 +568,14 @@ footer .container {
 .dropdown-menu li {
     margin-top: 0px;
     --bs-dropdown-border-radius: none;
+}
+
+.modal-content {
+    background-color: var(--sidebar-color);
+}
+
+.modal-header {
+    color: var(--light-color);
 }
 
 .product-card {
