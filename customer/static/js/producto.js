@@ -48,6 +48,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                     await deleteProduct(ident);//Using the function from firebase.js
                     dlt = document.getElementById(ident)//Getting the whole tag related to the id
                     dlt.remove()//Removing the row from the recently deleted product
+                    showMessage("Producto Eliminado", "error")
                 } catch (error) {
                     console.log(error)
                     showMessage("Ha ocurrido un error, por favor comunicarse con soporte", "Error")
@@ -69,7 +70,6 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                     updateForm['updQty'].setAttribute('value', pr.cantidad)
                     updateForm['updUnds'].setAttribute('value', pr.unidades)
                     updateForm['updPrice'].setAttribute('value', pr.precio)
-                    updateForm['imgFile'].setAttribute('value', pr.url_img)
                     identify = aux //Storing the id to the global id
                 } catch (error) {
                     console.log(error);
@@ -95,8 +95,8 @@ uploadImg.addEventListener("change", async (e) => {
 
 updateUploadImage.addEventListener("change", async (e) => {
     updtFileItem = e.target.files[0];
-    updtFileName = fileItem.name
-    console.log(fileName)
+    updtFileName = updtFileItem.name
+    console.log(updtFileName)
 })
 
 addForm.addEventListener("submit", async (e)=> {
@@ -128,7 +128,6 @@ addForm.addEventListener("submit", async (e)=> {
         //Add new product
         const upload = await uploadImage(fileName, fileItem)
         const productUrl = await getUrl(upload.ref)
-        console.log(productUrl)
         const productRef = await saveProduct(name, typeP, qty, unds, price, productUrl, fecha);
         modal = bootstrap.Modal.getInstance(document.querySelector('#addModal'))
         modal.hide()
@@ -143,35 +142,36 @@ updateForm.addEventListener("submit", async (e) => {
     //Preventing from closing
     e.preventDefault();
     //Gather info
-    const name = addForm['name'].value
-    const typeP = addForm['typeP'].value
-    const qty = addForm['qty'].value
-    const unds = addForm['unds'].value
-    const price = addForm['price'].value
-    const urlFile = addForm['imgFile'].value
+    const name = updateForm['updName'].value
+    const typeP = updateForm['updTypeP'].value
+    const qty = updateForm['updQty'].value
+    const unds = updateForm['updUnds'].value
+    const price = updateForm['updPrice'].value
     //Validate info
     if (!(validateName(name))) {
         return false
     } else if (qty == "") {
         showMessage("Indique la cantidad en ml", "error")
         return false
-    } else if (unds = "") {
+    } else if (unds == "") {
         showMessage("Indique las unidades disponibles", "error")
         return false
-    } else if (price = "") {
+    } else if (price == "") {
         showMessage("Indique el precio del producto", "error")
         return false
     }
     //Try Catch
     try {
         //Add new product
+        const upload = await uploadImage(updtFileName, updtFileItem)
+        const productUrl = await getUrl(upload.ref)
         await updateProduct(identify, {
             nombre: name,
             tipo: typeP,
             cantidad: qty,
             unidades: unds,
             precio: price,
-            url_img: urlFile
+            url_img: productUrl
         });
         modal = bootstrap.Modal.getInstance(document.querySelector('#updateModal'))
         modal.hide()
@@ -185,7 +185,7 @@ updateForm.addEventListener("submit", async (e) => {
                 <td>${qty}</td>
                 <td>${unds}</td>
                 <td>${price}</td>
-                <td><img src="${urlFile}"></img></td>
+                <td><img src="${productUrl}"></img></td>
                 <td>
                 <button class="btn btn-outline-warning btn-edit" data-bs-toggle="modal" data-bs-target="#updateModal" id="${identify}"><i class='fas fa-pencil-alt'></i></button>
                 <button class="btn btn-outline-danger btn-delete" id="${identify}"><i class='fas fa-trash'></i></button>

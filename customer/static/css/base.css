@@ -11992,4 +11992,5 @@ a[data-toggle="collapse"] {
 
 td img {
   max-height: 100px;
+  max-width: 100px;
 }

@@ -159,13 +159,13 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="typeP" class="form-label" lng-tag="type"></label>
-                                    <select class="form-select form-select-sm" id="typeP"
-                                        aria-label=".form-select-lg example">
+                                    <select class="form-select form-select-sm" id="typeP" aria-label=".form-select-lg example">
                                         <option value="Licor">Licor</option>
+                                        <option value="Shot">Shot</option>
                                         <option value="Vino">Vino</option>
                                         <option value="Energizantes">Energizantes</option>
                                         <option value="Cerveza">Cerveza</option>
-                                        <option value="Bebidas sin licor">Bebidas sin licor</option>
+                                        <option value="Sin Alcohol">Sin Alcohol</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
@@ -210,22 +210,19 @@
                             <form class="needs-validation was-validated" id="updateForm" novalidate>
                                 <div class="mb-3">
                                     <label for="name" class="form-label" lng-tag="name"></label>
-                                    <input type="text" class="form-control" id="updName" required spellcheck="false"
-                                        data-ms-editor="true" placeholder="Aguardiente Antioqueño Tapa Azul">
+                                    <input type="text" class="form-control" id="updName" required spellcheck="false" data-ms-editor="true" placeholder="Aguardiente Antioqueño Tapa Azul">
                                     <div class="invalid-feedback" lng-tag="nameWarning"></div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="typeP" class="form-label" lng-tag="type"></label>
-                                    <input class="form-control" list="products" id="updTypeP" placeholder="Shot"
-                                        required>
-                                    <datalist id="products">
-                                        <option selected value="Licor">
-                                        <option value="Shot">
-                                        <option value="Vino">
-                                        <option value="Energizantes">
-                                        <option value="Pasabocas">
-                                        <option value="Liquidos">
-                                    </datalist>
+                                    <select class="form-select form-select-sm" id="updTypeP" aria-label=".form-select-lg example">
+                                        <option value="Licor">Licor</option>
+                                        <option value="Shot">Shot</option>
+                                        <option value="Vino">Vino</option>
+                                        <option value="Energizantes">Energizantes</option>
+                                        <option value="Cerveza">Cerveza</option>
+                                        <option value="Sin Alcohol">Sin Alcohol</option>
+                                    </select>
                                     <div class="invalid-feedback" lng-tag="typeWarning"></div>
                                 </div>
                                 <div class="mb-3">
