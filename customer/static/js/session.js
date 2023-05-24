@@ -1,5 +1,6 @@
 import { signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js"
-import { auth, loginCheck, addUser } from "./firebase.js"
+import { query, collection, where, getDocs } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js"
+import { auth, loginCheck, addUserForm, db } from "./firebase.js"
 import { showMessage } from "./showmessage.js"
 
 const loggedInLinks = document.querySelectorAll('.logged-in')
@@ -7,6 +8,8 @@ const loggedOutLinks = document.querySelectorAll('.logged-out')
 const logout = document.querySelector('#logout')
 const signupForm = document.querySelector('#signupForm')
 const loginForm = document.querySelector('#login-form')
+
+const id =""
 
 window.addEventListener("DOMContentLoaded", async (e) => {
   loginCheck(loggedOutLinks, loggedInLinks)
@@ -19,8 +22,14 @@ loginForm.addEventListener('submit', async e => {
   try {
     const credentials = await signInWithEmailAndPassword(auth, email, password)
     const modal = bootstrap.Modal.getInstance(document.querySelector('#loginModal'))
+    console.log(email)
     modal.hide()
-    sessionStorage.setItem('loginUser', email)
+    const q = query(collection(db, 'users'), where("email", "==", email));
+    const querySnapshot = await getDocs(q)
+    querySnapshot.forEach((doc) => {
+      const d = doc.data()
+      sessionStorage.setItem('loginUser', d.id)
+    })
     loginCheck(loggedOutLinks, loggedInLinks)
     showMessage("Welcome " + credentials.user.email)
   } catch (error) {
@@ -40,8 +49,9 @@ signupForm.addEventListener('submit', async (e) => {
   const password = signupForm['signupPassword'].value
   try {
     const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
-    addUser(userCredentials.user.uid, userCredentials.user.email, userCredentials.user.password)
-    sessionStorage.setItem('loginUser', email)
+    const datetime = new Date()
+    addUserForm(userCredentials.user.uid, userCredentials.user.email, datetime)
+    sessionStorage.setItem('loginUser', userCredentials.user.uid)
     loginCheck(loggedOutLinks, loggedInLinks)
     const signupModal = document.querySelector('#signupModal')
     const modal = bootstrap.Modal.getInstance(signupModal)
