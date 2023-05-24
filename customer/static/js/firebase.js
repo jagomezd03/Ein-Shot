@@ -27,6 +27,119 @@ export const auth = getAuth(app)
 export const db = getFirestore(app)
 export const storage = getStorage(app)
 
+//Functions for index page carousels
+export const cerveza = async (v) => {
+    const q = query(collection(db, 'products'), where("tipo", "==", "Cerveza"));
+    const querySnapshot = await getDocs(q)
+    querySnapshot.forEach((doc) => {
+        const da = doc.data()
+        v.innerHTML +=  `<li class="card">
+                            <div class="img"><img src="${da.url_img}" alt="img" draggable="false"></div>
+                            <h2>${da.nombre} x${da.cantidad}</h2>
+                            <div class="price">
+                            <span class="price_num">$${da.precio}</span>
+                            </div>
+                        </li>
+            `
+    })
+}
+
+export const licor = async (v) => {
+    const q = query(collection(db, 'products'), where("tipo", "==", "Licor"));
+    const querySnapshot = await getDocs(q)
+    querySnapshot.forEach((doc) => {
+        const da = doc.data()
+        v.innerHTML +=  `<li class="card">
+                            <div class="img"><img src="${da.url_img}" alt="img" draggable="false"></div>
+                            <h2>${da.nombre} x${da.cantidad}</h2>
+                            <div class="price">
+                            <span class="price_num">$${da.precio}</span>
+                            </div>
+                        </li>
+            `
+    })
+}
+
+export const shot = async (v) => {
+    const q = query(collection(db, 'products'), where("tipo", "==", "Shot"));
+    const querySnapshot = await getDocs(q)
+    querySnapshot.forEach((doc) => {
+        const da = doc.data()
+        v.innerHTML +=  `<li class="card">
+                            <div class="img"><img src="${da.url_img}" alt="img" draggable="false"></div>
+                            <h2>${da.nombre} x${da.cantidad}</h2>
+                            <div class="price">
+                            <span class="price_num">$${da.precio}</span>
+                            </div>
+                        </li>
+            `
+    })
+}
+
+export const energizante = async (v) => {
+    const q = query(collection(db, 'products'), where("tipo", "==", "Energizantes"));
+    const querySnapshot = await getDocs(q)
+    querySnapshot.forEach((doc) => {
+        const da = doc.data()
+        v.innerHTML +=  `<li class="card">
+                            <div class="img"><img src="${da.url_img}" alt="img" draggable="false"></div>
+                            <h2>${da.nombre} x${da.cantidad}</h2>
+                            <div class="price">
+                            <span class="price_num">$${da.precio}</span>
+                            </div>
+                        </li>
+            `
+    })
+}
+
+export const vino = async (v) => {
+    const q = query(collection(db, 'products'), where("tipo", "==", "Vino"));
+    const querySnapshot = await getDocs(q)
+    querySnapshot.forEach((doc) => {
+        const da = doc.data()
+        v.innerHTML +=  `<li class="card">
+                            <div class="img"><img src="${da.url_img}" alt="img" draggable="false"></div>
+                            <h2>${da.nombre} x${da.cantidad}</h2>
+                            <div class="price">
+                            <span class="price_num">$${da.precio}</span>
+                            </div>
+                        </li>
+            `
+    })
+}
+
+export const noAlcohol = async (v) => {
+    const q = query(collection(db, 'products'), where("tipo", "==", "Sin Alcohol"));
+    const querySnapshot = await getDocs(q)
+    querySnapshot.forEach((doc) => {
+        const da = doc.data()
+        v.innerHTML +=  `<li class="card">
+                            <div class="img"><img src="${da.url_img}" alt="img" draggable="false"></div>
+                            <h2>${da.nombre} x${da.cantidad}</h2>
+                            <div class="price">
+                            <span class="price_num">$${da.precio}</span>
+                            </div>
+                        </li>
+            `
+    })
+}
+
+export const snacks = async (v) => {
+    const q = query(collection(db, 'products'), where("tipo", "==", "Snack"));
+    const querySnapshot = await getDocs(q)
+    querySnapshot.forEach((doc) => {
+        const da = doc.data()
+        v.innerHTML +=  `<li class="card">
+                            <div class="img"><img src="${da.url_img}" alt="img" draggable="false"></div>
+                            <h2>${da.nombre} x${da.cantidad}</h2>
+                            <div class="price">
+                            <span class="price_num">$${da.precio}</span>
+                            </div>
+                        </li>
+            `
+    })
+}
+
 //Functions for session employee
 export const getEmployeeSession = async (email, pass) => {
     const q = query(collection(db, "empleados"), where("email", "==", email))
@@ -180,7 +293,6 @@ export const loginCheck = async (loggedout, loggedin) => {
         await loggedin.forEach((doc) => {
             $(doc).css('display', 'block')
         })
-        console.log(session)
     } else {
         await loggedout.forEach((doc) => {
             $(doc).css('display', 'block')
@@ -188,6 +300,5 @@ export const loginCheck = async (loggedout, loggedin) => {
         await loggedin.forEach((doc) => {
             $(doc).css('display', 'none')
         })
-        console.log(session)
     }
 }

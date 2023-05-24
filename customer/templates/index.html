@@ -11,6 +11,7 @@
   <link rel="shortcut icon" href="{% static 'images/sprite.png' %}" type="image/x-icon">
   <script src="{% static 'js/verifyAge.js' %}" type="module"></script>
   <script src="{% static 'js/session.js' %}" type="module"></script>
+  <script src="{% static 'js/mainPage.js' %}" type="module"></script>
   <link rel="stylesheet" href="{% static 'css/home.css' %}">
   <link rel="stylesheet" href="{% static 'css/index.css' %}">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -39,10 +40,16 @@
               <span class="text nav-text" lng-tag="home"></span>
             </a>
           </li>
-          <li class="nav-link dropdown-center">
+          <li class="nav-link">
             <a href="category/">
               <i class='bx bx-beer icon'></i>
               <span class="text nav-text" lng-tag="beers"></span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a href="#">
+              <i class='bx bxs-drink icon'></i>
+              <span class="text nav-text" lng-tag="licores"></span>
             </a>
           </li>
           <li class="nav-link">
@@ -174,88 +181,39 @@
     </div>
     <h5 class="titlediv" lng-tag="beers"></h5>
     <div class="wrapper">
-      <ul class="carousel">
-        <li class="card">
-          <div class="img"><img src="{% static 'images/budweiser.webp' %}" alt="img" draggable="false"></div>
-          <h2>Sixpack Budweiser x286ml</h2>
-          <div class="price">
-            <span class="price_num">$14.000</span>
-          </div>
-        </li>
-        <li class="card">
-          <div class="img"><img src="{% static 'images/pilsen.jpg' %}" alt="img" draggable="false"></div>
-          <h2>Cerveza Pilsen x320ml</h2>
-          <div class="price">
-            <span class="price_num">$3.500</span>
-          </div>
-        </li>
-        <li class="card">
-          <div class="img"><img src="{% static 'images/corona.webp' %}" alt="img" draggable="false"></div>
-          <h2>Sixpack Cerveza Corona x286ml</h2>
-          <div class="price">
-            <span class="price_num">$24.000</span>
-          </div>
-        </li>
-        <li class="card">
-          <div class="img"><img src="{% static 'images/corona.png' %}" alt="img" draggable="false"></div>
-          <h2>Cerveza Corona x286ml</h2>
-          <div class="price">
-            <span class="price_num">$4.000</span>
-          </div>
-        </li>
-        <li class="card">
-          <div class="img"><img src="{% static 'images/aguila.webp' %}" alt="img" draggable="false"></div>
-          <h2>Sixpack Cerveza Aguila x350ml</h2>
-          <div class="price">
-            <span class="price_num">$14.000</span>
-          </div>
-        </li>
+      <ul class="carousel" id="cervezas">
       </ul>
-      <i id="left" class="bx bx-chevron-left bx-sm" style="position: absolute;left: -3.4vw;"></i>
-      <i id="right" class="bx bx-chevron-right bx-sm"></i>
     </div>
-    <h5 class="titlediv">Shots</h5><br>
+    <h5 class="titlediv">Shots</h5>
     <div class="wrapper">
-      <ul class="carousel">
-        <li class="card">
-          <div class="img"><img src="{% static 'images/budweiser.webp' %}" alt="img" draggable="false"></div>
-          <h2>Sixpack Budweiser x286ml</h2>
-          <div class="price">
-            <span class="price_num">$14.000</span>
-          </div>
-        </li>
-        <li class="card">
-          <div class="img"><img src="{% static 'images/pilsen.jpg' %}" alt="img" draggable="false"></div>
-          <h2>Cerveza Pilsen x320ml</h2>
-          <div class="price">
-            <span class="price_num">$3.500</span>
-          </div>
-        </li>
-        <li class="card">
-          <div class="img"><img src="{% static 'images/corona.webp' %}" alt="img" draggable="false"></div>
-          <h2>Sixpack Cerveza Corona x286ml</h2>
-          <div class="price">
-            <span class="price_num">$24.000</span>
-          </div>
-        </li>
-        <li class="card">
-          <div class="img"><img src="{% static 'images/corona.png' %}" alt="img" draggable="false"></div>
-          <h2>Cerveza Corona x286ml</h2>
-          <div class="price">
-            <span class="price_num">$4.000</span>
-          </div>
-        </li>
-        <li class="card">
-          <div class="img"><img src="{% static 'images/aguila.webp' %}" alt="img" draggable="false"></div>
-          <h2>Sixpack Cerveza Aguila x350ml</h2>
-          <div class="price">
-            <span class="price_num">$14.000</span>
-          </div>
-        </li>
+      <ul class="carousel" id="shot">
       </ul>
-      <i id="left" class="bx bx-chevron-left bx-sm" style="position: absolute;left: -3.4vw;"></i>
-      <i id="right" class="bx bx-chevron-right bx-sm"></i>
-    </div>    
+    </div>
+    <h5 class="titlediv" lng-tag="licores"></h5>
+    <div class="wrapper">
+      <ul class="carousel" id="licor">
+      </ul>
+    </div>
+    <h5 class="titlediv" lng-tag="energizante"></h5>
+    <div class="wrapper">
+      <ul class="carousel" id="energizantes">
+      </ul>
+    </div>
+    <h5 class="titlediv" lng-tag="noalcohol"></h5>
+    <div class="wrapper">
+      <ul class="carousel" id="noAlcohol">
+      </ul>
+    </div>
+    <h5 class="titlediv" lng-tag="snacks"></h5>
+    <div class="wrapper">
+      <ul class="carousel" id="snacks">
+      </ul>
+    </div>
+    <h5 class="titlediv" lng-tag="wines"></h5>
+    <div class="wrapper">
+      <ul class="carousel" id="vino">
+      </ul>
+    </div>
     <footer>
       <div class="container">
         <div class="row">
