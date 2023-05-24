@@ -2,6 +2,7 @@
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js"
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
+import { getStorage, ref, getDownloadURL, uploadBytes } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js";
 import { getFirestore, collection, getDocs, onSnapshot, addDoc, deleteDoc, doc, getDoc, updateDoc, query, where } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js"
 import { showMessage } from "./showmessage.js";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -24,6 +25,7 @@ export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 export const auth = getAuth(app)
 export const db = getFirestore(app)
+export const storage = getStorage(app)
 
 //Functions for session employee
 export const getEmployeeSession = async (email, pass) => {
@@ -62,6 +64,15 @@ export const updateEmployee = (id, newFields) => updateDoc(doc(db, "empleados", 
 export const getEmployees = () => getDocs(collection(db, "empleados"));
 
 //Functions for CRUD Products
+export const uploadImage = (filename, fileitem) => {
+    const storageRef = ref(storage, 'productos/' + filename)
+    return uploadBytes(storageRef, fileitem)
+}
+
+export const getUrl = (refe) => {
+    return getDownloadURL(ref(storage, refe))
+}
+
 export const saveProduct = async (nombre, tipo, cantidad, unidades, precio, url_img, fecha) => {
     const productRef = addDoc(collection(db, "products"), { nombre, tipo, cantidad, unidades, precio, url_img, fecha });
     return productRef
@@ -162,7 +173,7 @@ export const insert = async (sector, insertThat) => {
 
 export const loginCheck = async (loggedout, loggedin) => {
     const session = sessionStorage.getItem('loginUser')
-    if (session!=null) {
+    if (session != null) {
         await loggedout.forEach((doc) => {
             $(doc).css('display', 'none')
         })

@@ -1,12 +1,16 @@
-import { onGetProducts, saveProduct, deleteProduct, getProduct, updateProduct } from "./firebase.js";
+import { onGetProducts, saveProduct, deleteProduct, getProduct, updateProduct, validateName, storage, uploadImage, getUrl } from "./firebase.js";
 import { showMessage } from "./showmessage.js";
 
 const addForm = document.getElementById('addForm') //Storing the add form
 const updateForm = document.getElementById('updateForm') // Storing the update form
 const productList = document.querySelector('#emp') //Storing the body's table
+const clear = document.getElementById('clear')
+const uploadImg = document.getElementById("imgFile")
+const updateUploadImage = document.getElementById("updImgFile")
 
 let editStatus = false; //Global const to help us with the update/save product
 let identify, dlt, modal = ""//Global const to help us storing the id/Global const to help us storing the row
+var fileItem, fileName, updtFileItem, updtFileName
 
 window.addEventListener("DOMContentLoaded", async (e) => {
     onGetProducts((querySnapshot) => { //Geting the products
@@ -23,7 +27,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                     <td>${q.cantidad}</td>
                     <td>${q.unidades}</td>
                     <td>$${q.precio}</td>
-                    <td>${q.url_img}</td>
+                    <td><img src="${q.url_img}"></img></td>
                     <td>
                         <button class="btn btn-outline-warning btn-edit" data-bs-toggle="modal" data-bs-target="#updateModal" id="${doc.id}"><i
                                 class='fas fa-pencil-alt'></i></button>
@@ -76,60 +80,26 @@ window.addEventListener("DOMContentLoaded", async (e) => {
     });
 });
 
-addForm.addEventListener("submit", async (e) => {
-    //Preventing from closing
-    e.preventDefault();
-    //Gather info
-    const fecha = new Date()
-    const name = addForm['name'].value
-    const typeP = addForm['typeP'].value
-    const qty = addForm['qty'].value
-    const unds = addForm['unds'].value
-    const price = addForm['price'].value
-    const urlFile = addForm['imgFile'].value
-    //Try Catch
-    try {
-        //Add new employee
-        if (!editStatus) {
-            const productRef = await saveProduct(name, typeP, qty, unds, price, urlFile, fecha);
-            modal = bootstrap.Modal.getInstance(document.querySelector('#addModal'))
-            modal.hide()
-            showMessage("Producto #" + productRef.id + " añadido")
-        } else { //Update a existing employee
-            await updateProduct(identify, {
-                nombre: name,
-                tipo: typeP,
-                cantidad: qty,
-                unidades: unds,
-                precio: price,
-                url_img: urlFile
-            });
-            modal = bootstrap.Modal.getInstance(document.querySelector('#updateModal'))
-            modal.hide()
-            showMessage("Producto #" + identify + " actualizado")//Alert popup
-            const updP = document.getElementById(identify)//Storing the tr by his id
-            updP.innerHTML =/*Updating the employee info*/ `
-                <tr id=${identify}>
-                    <th>${identify}</th>
-                    <td>${name}</td>
-                    <td>${typeP}</td>
-                    <td>${qty}</td>
-                    <td>${unds}</td>
-                    <td>${price}</td>
-                    <td>${urlFile}</td>
-                    <td>
-                    <button class="btn btn-outline-warning btn-edit" data-bs-toggle="modal" data-bs-target="#updateModal" id="${identify}"><i class='fas fa-pencil-alt'></i></button>
-                    <button class="btn btn-outline-danger btn-delete" id="${identify}"><i class='fas fa-trash'></i></button>
-                    </td>
-                </tr>
-                `;
-        }
-    } catch (error) {
-        console.log(error);
-    }
-});
+clear.addEventListener("click", async (e) => {
+    var getName = document.querySelectorAll("input")
+    getName.forEach((doc) => {
+        doc.value = ""
+    })
+})
 
-addForm.addEventListener("submit", async (e) => {
+uploadImg.addEventListener("change", async (e) => {
+    fileItem = e.target.files[0];
+    fileName = fileItem.name
+    console.log(fileName)
+})
+
+updateUploadImage.addEventListener("change", async (e) => {
+    updtFileItem = e.target.files[0];
+    updtFileName = fileItem.name
+    console.log(fileName)
+})
+
+addForm.addEventListener("submit", async (e)=> {
     //Preventing from closing
     e.preventDefault();
     //Gather info
@@ -139,24 +109,27 @@ addForm.addEventListener("submit", async (e) => {
     const qty = addForm['qty'].value
     const unds = addForm['unds'].value
     const price = addForm['price'].value
-    const urlFile = addForm['imgFile'].value
+    console.log(fileName)
     //Validate info
     if (!(validateName(name))) {
         return false
-    } else if (qty=="") {
+    } else if (qty == "") {
         showMessage("Indique la cantidad en ml", "error")
         return false
-    } else if (unds="") {
+    } else if (unds == "") {
         showMessage("Indique las unidades disponibles", "error")
         return false
-    } else if (price="") {
+    } else if (price == "") {
         showMessage("Indique el precio del producto", "error")
         return false
-    }
+    } 
     //Try Catch
     try {
-        //Add new employee
-        const productRef = await saveProduct(name, typeP, qty, unds, price, urlFile, fecha);
+        //Add new product
+        const upload = await uploadImage(fileName, fileItem)
+        const productUrl = await getUrl(upload.ref)
+        console.log(productUrl)
+        const productRef = await saveProduct(name, typeP, qty, unds, price, productUrl, fecha);
         modal = bootstrap.Modal.getInstance(document.querySelector('#addModal'))
         modal.hide()
         showMessage("Producto #" + productRef.id + " añadido")
@@ -179,19 +152,19 @@ updateForm.addEventListener("submit", async (e) => {
     //Validate info
     if (!(validateName(name))) {
         return false
-    } else if (qty=="") {
+    } else if (qty == "") {
         showMessage("Indique la cantidad en ml", "error")
         return false
-    } else if (unds="") {
+    } else if (unds = "") {
         showMessage("Indique las unidades disponibles", "error")
         return false
-    } else if (price="") {
+    } else if (price = "") {
         showMessage("Indique el precio del producto", "error")
         return false
     }
     //Try Catch
     try {
-        //Add new employee
+        //Add new product
         await updateProduct(identify, {
             nombre: name,
             tipo: typeP,
@@ -212,7 +185,7 @@ updateForm.addEventListener("submit", async (e) => {
                 <td>${qty}</td>
                 <td>${unds}</td>
                 <td>${price}</td>
-                <td>${urlFile}</td>
+                <td><img src="${urlFile}"></img></td>
                 <td>
                 <button class="btn btn-outline-warning btn-edit" data-bs-toggle="modal" data-bs-target="#updateModal" id="${identify}"><i class='fas fa-pencil-alt'></i></button>
                 <button class="btn btn-outline-danger btn-delete" id="${identify}"><i class='fas fa-trash'></i></button>
