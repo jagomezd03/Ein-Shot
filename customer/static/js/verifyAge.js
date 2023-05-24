@@ -38,7 +38,7 @@ regForm.addEventListener('submit', async e => {
         const datetimestamp = new Date(datetime)
         try {
             const userRef = await addUser(date, gender, datetimestamp)
-            setCoookie("1")
+            setCoookie(userRef.id)
             modal = bootstrap.Modal.getInstance(document.getElementById('modal'))
             modal.hide()
         } catch (error) {

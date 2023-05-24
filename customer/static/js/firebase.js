@@ -217,6 +217,7 @@ export const addUser = async (fecha_nacimiento, genero, datetime) => {
         datetime,
         registrado,
     });
+    return q
 }
 
 export const addUserForm = async (id, email, datetime) => {
